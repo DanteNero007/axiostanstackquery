@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "../api";
 import { Link } from "react-router-dom";
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
 
 const fetchPosts =  async () => {
     const response = await
@@ -21,7 +22,7 @@ const fetchPosts =  async () => {
       return(
       <div>
         <ul>
-        { data.map(post =>(
+        { data.map((post: { id: Key | null | undefined; title: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; }) =>(
           <li key={post.id} >
             {post.title}
           </li>
